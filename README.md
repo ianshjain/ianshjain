@@ -1,7 +1,7 @@
 <h1 align="center">Hi 👋, I'm Ansh Jain</h1>
 <h3 align="center">Turning Coffee into Code | Indie App Developer</h3>
 
-- Reach me **jainansh1954@gmail.com**
+- Reach me at **jainansh1954@gmail.com**
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
