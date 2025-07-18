@@ -1,0 +1,30 @@
+name: "🎲 Guess the Number Game"
+
+on:
+  workflow_dispatch:
+    inputs:
+      user_guess:
+        description: "Enter your guess (between 1 and 10)"
+        required: true
+
+jobs:
+  guess_game:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generate a Random Number
+        id: random
+        run: echo "value=$(( (RANDOM % 10) + 1 ))" >> $GITHUB_OUTPUT
+
+      - name: Show the Random Number
+        run: echo "🎲 The secret number is ${{ steps.random.outputs.value }}"
+
+      - name: Check the Guess
+        run: |
+          guess=${{ github.event.inputs.user_guess }}
+          answer=${{ steps.random.outputs.value }}
+          echo "🧠 You guessed: $guess"
+          if [ "$guess" -eq "$answer" ]; then
+            echo "✅ Correct! You win! 🎉"
+          else
+            echo "❌ Wrong guess. Try again!"
+          fi
